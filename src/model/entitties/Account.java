@@ -50,14 +50,18 @@ public class Account {
 		balance += amount;
 	}
 	
-	public void withdraw(Double amount) throws LimitWithdrawException {
+	public Double withdraw(Double amount)  {	
+		return balance -= amount;
+	}
+	
+	public void limitWithdraw(Double amount) throws LimitWithdrawException {
 		if(withdrawLimit < amount) {
 			throw new LimitWithdrawException ("the amount exceeds withdraw limit");
 		}
 		if(balance < amount) {
 			throw new LimitWithdrawException ("not enough balance");
 		}
-		balance -= amount;
+		balance =  withdraw(amount);
 	}
 }
 

@@ -29,7 +29,7 @@ public class App {
 			System.out.print("Enter amount of withdraw: ");
 			Double amount = sc.nextDouble();
 			
-			account.withdraw(amount);
+			account.limitWithdraw(amount);
 			System.out.println(String.format("%.2f", account.getBalance()));
 			sc.close();
 		}
